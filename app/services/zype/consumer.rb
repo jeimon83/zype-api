@@ -3,13 +3,7 @@
 module Zype
   class Consumer < Oauth
     def validate_consumer(video_id)
-      request = Typhoeus::Request.new(
-        entitled_url(video_id),
-        method: :get,
-        params: @credentials['access_token'],
-      )
-    
-      response = request.run
+      response = Typhoeus.get(entitled_url(video_id), params: { access_token: @access_token} )
       JSON.parse(response.response_body.to_s)
     end
 

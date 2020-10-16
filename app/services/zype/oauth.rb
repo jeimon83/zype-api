@@ -2,9 +2,9 @@
 
 module Zype
   class Oauth
-    #include ActiveRecord::Integration
-
-    def initialize
+    def initialize(params)
+      @email = params[:username]
+      @password = params[:password]
       @access_token = fetch_token
     end
 
@@ -13,6 +13,8 @@ module Zype
     end
 
     private
+
+    attr_reader :username, :password
 
     def fetch_new_token
       request = Typhoeus::Request.new(
@@ -31,11 +33,11 @@ module Zype
 
     def oauth_params
       {
-        client_id:     Rails.configuration.zype_api_client_id,
-        client_secret: Rails.configuration.zype_api_client_secret,
-        username:      Rails.configuration.zype_username,
-        password:      Rails.configuration.zype_password,
-        grant_type:    Rails.configuration.zype_password
+        client_id:     Rails.configuration.zype_client_id,
+        client_secret: Rails.configuration.zype_client_secret,
+        username:      username,
+        password:      password,
+        grant_type:    password
       }
     end
   end

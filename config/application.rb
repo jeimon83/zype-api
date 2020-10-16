@@ -16,12 +16,10 @@ module ZypeChallenge
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    config.zype_base_url          = ENV['ZYPE_BASE_URL']
-    config.zype_api_app_key       = ENV['ZYPE_API_APP_KEY']
-    config.zype_api_client_id     = ENV['ZYPE_API_CLIENT_ID']
-    config.zype_api_client_secret = ENV['ZYPE_API_CLIENT_SECRET']
-    config.zype_login_url         = ENV['ZYPE_LOGIN_URL']
-    config.zype_username          = ENV['ZYPE_USERNAME']
-    config.zype_password          = ENV['ZYPE_PASSWORD']
+    config.zype_base_url      = ENV['ZYPE_BASE_URL']
+    config.zype_app_key       = ENV['ZYPE_APP_KEY']
+    config.zype_client_id     = ENV['ZYPE_CLIENT_ID']
+    config.zype_client_secret = ENV['ZYPE_CLIENT_SECRET']
+    config.zype_login_url     = ENV['ZYPE_LOGIN_URL']
   end
 end

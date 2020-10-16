@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Zype
-  class Videos < Oauth
+  class Videos
     def search_videos(page)
       response = Typhoeus.get(video_url, params: search_video_params(page))
       JSON.parse(response.response_body.to_s)
@@ -18,23 +18,21 @@ module Zype
       "#{Rails.configuration.zype_base_url}/videos"
     end
 
-    def api_app_key
-      Rails.configuration.zype_api_app_key
+    def app_key
+      Rails.configuration.zype_app_key
     end
 
     def search_video_params(page)
       {
-        page: page,
-        per_page: 10,
-        api_key: api_app_key,
-        access_token: @access_token
+        page: page || 1,
+        per_page: 12,
+        app_key: app_key
       }
     end
 
     def fetch_video_params
       { 
-        api_key: api_app_key, 
-        access_token: @access_token
+        app_key: app_key
       }
     end
   end

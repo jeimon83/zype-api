@@ -1,9 +1,19 @@
-<div class="row">
+<div class="grid-video">
   <% @videos.each do |video| %>
-    <div>
-      <div class="card">
-        <%= link_to image_tag(video[:image]), video_path(video[:id]) %>
-      </div>
+    <div class="video-thumbnail">
+      <%= link_to image_tag(video[:image]), video_path(video[:id]) %>
+      <div class="title-video"></div>
+      <% if video[:subscription] %>
+        <div class="badge"> Subscription is required!</div>
+      <% end %>
     </div>
   <% end %>
+</div>
+<div class="page-container">
+	<% unless @pagination[:previous_page].nil? %>
+		<%= link_to "<< Prev", videos_path(page: @pagination[:previous_page]), class: "page-button mr-10" %>
+	<% end %>
+	<% unless @pagination[:next_page].nil? %>
+		<%= link_to "Next >>", videos_path(page: @pagination[:next_page]), class: "page-button ml-10" %>
+	<% end %>
 </div>

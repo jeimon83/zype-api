@@ -1,0 +1,97 @@
+@import "bootstrap";
+
+/* typography */
+
+h1 {
+  font-size: 1.5em;
+  margin-top: 6px;
+  margin-left: 15px;
+  color: white;
+  font-weight: 700;
+}
+
+/* header */
+
+.navbar {
+  background: black;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    &:hover {
+    color: grey;
+    text-decoration: none;
+  }
+}
+
+.page-button {
+  color: black;
+  &:hover {
+    color: grey;
+    text-decoration: none;
+  }
+}
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+/* footer */
+
+footer {
+  margin-top: 10px;
+  background: black;
+}
+
+footer small a {
+  float: left;
+  color: white;
+  text-size: 1em;
+}
+
+/* video visualization */
+
+.grid-video {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  column-gap: 0px;
+  row-gap: 10px;
+  justify-items: center;
+  padding: 0 5px;
+  margin-top: 10px;
+  padding-bottom: 50px;
+}
+
+.content-video {
+  margin: 10px 0;
+  padding: 0 10px;
+}
+
+.video-thumbnail {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  display: block;
+}
+
+.badge {
+  font-size: 1em;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: red;
+  color: white;
+}

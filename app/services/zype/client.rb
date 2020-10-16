@@ -22,8 +22,8 @@ module Zype
       Zype::Data.new.build_video_data(video)
     end
 
-    def pagination(data)
-      Zype::Pagination.new.paginate(data)
+    def authenticate(params)
+      Zype::Oauth.new.fetch_token(params)
     end
 	end
 end

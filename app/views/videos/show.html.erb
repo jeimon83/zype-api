@@ -1,8 +1,4 @@
-<h1 class="text-center"><%= @video['title'] %></h1>
-<p class="text-center"><%= link_to "Back", videos_path() %></p>
-<div class="row mt-5">
-  <div class="col-12">
-    <div id='<%= "zype_#{@video[:id]}" %>'></div>
-    <script src="<%= @video[:embeded_player] %>" type="text/javascript"></script>
-  </div>
+<div class="content-video">
+	<div id='<%= "zype_#{@video[:id]}" %>'></div>
+  <script src="<%= @video[:embeded_player] %>" type="text/javascript"></script>
 </div>

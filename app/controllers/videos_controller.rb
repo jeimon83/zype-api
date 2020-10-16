@@ -1,22 +1,34 @@
 # frozen_string_literal: true
 
 class VideosController < ApplicationController
-  before_action :set_zype_client, only: [:index, :show]
-
   def index
-    query_result = @zype.search_videos(params[:page] || 1)
-    @videos      = @zype.build_videos_data(query_result['response'])
-    @pagination  = @zype.pagination(query_result['pagination'])
+    query_result = zype_client.search_videos(params[:page])
+    @videos      = zype_client.build_videos_data(query_result['response'])
+    @pagination  = paginate(query_result['pagination'])
   end
 
   def show
-    query_result = @zype.fetch_video(params[:id])
-    @video       = @zype.build_video_data(query_result['response'])
+    query_result = zype_client.fetch_video(params[:id])
+    @video       = zype_client.build_video_data(query_result['response'])
+    token = validate_token if @video[:subscription]
+    redirect_to auth_video_path if !token
+  end
+
+  def auth; end
+
+  def login
+    x = zype_client.authenticate(params)
+    binding.pry
   end
 
   private
 
-  def set_zype_client
-    @zype = Zype::Client.new
+  def zype_client
+    @zype ||= Zype::Client.new
   end
+
+  def video_params
+    params.permit(:page, :username, :password)
+  end
+
 end

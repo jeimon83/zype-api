@@ -3,10 +3,14 @@ module Zype
     def build_videos_data(videos)
       video_data = []
       videos.map do |video|
+        video_width = video.dig('thumbnails', 0, 'width')
+        next if video_width < 426
+
         video_data << {
           id: video['_id'],
+          title: video['title'],
           subscription: video['subscription_required'],
-          image: video['thumbnails'].first['url']
+          image: video.dig('thumbnails', 0, 'url'),
         }
       end
       video_data
@@ -22,11 +26,11 @@ module Zype
     end
 
     def embeded_player(id)
-      "https://player.zype.com/embed/#{id}.js?autoplay=true&app_key=#{api_app_key}"
+      "https://player.zype.com/embed/#{id}.js?autoplay=true&app_key=#{app_key}"
     end
 
-    def api_app_key
-      Rails.configuration.zype_api_app_key
+    def app_key
+      Rails.configuration.zype_app_key
     end
   end
 end
