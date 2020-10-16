@@ -1,0 +1,9 @@
+<div class="row">
+  <% @videos.each do |video| %>
+    <div>
+      <div class="card">
+        <%= link_to image_tag(video[:image]), video_path(video[:id]) %>
+      </div>
+    </div>
+  <% end %>
+</div>
