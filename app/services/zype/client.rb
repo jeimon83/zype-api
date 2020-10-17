@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
+# Module Zype
 module Zype
-	class Client    
+  # Class Client
+  class Client    
     def search_videos(page)
       Zype::Videos.new.search_videos(page)
     end
@@ -21,5 +23,5 @@ module Zype
     def authenticate(login)
       Zype::Oauth.new(login).fetch_token
     end
-	end
+  end
 end

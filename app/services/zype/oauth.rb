@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
+# frozen_string_literal: true
+
+# Module Zype
 module Zype
+  # Class Oauth
   class Oauth
     def initialize(login)
       @username     = login[:username]
@@ -9,8 +13,8 @@ module Zype
     end
 
     def fetch_token
-      Rails.cache.fetch("access_token", expires_in: 1.hour) do
-        response = Typhoeus.post( login_url, params: oauth_params)
+      Rails.cache.fetch('access_token', expires_in: 1.hour) do
+        response = Typhoeus.post(login_url, params: oauth_params)
         return false if response.code != 200
 
         JSON.parse(response.response_body.to_s)['access_token']

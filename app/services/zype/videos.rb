@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+# Module Zype
 module Zype
+  # Class Videos
   class Videos
     def search_videos(page)
       response = Typhoeus.get(video_url, params: search_video_params(page))
@@ -8,7 +10,7 @@ module Zype
     end
 
     def fetch_video(id)
-      response = Typhoeus.get(video_url + "/#{id}", params: { app_key: app_key } )
+      response = Typhoeus.get(video_url + "/#{id}", params: { app_key: app_key })
       video = JSON.parse(response.response_body.to_s)
       video_attributes(video['response'])
     end
@@ -23,7 +25,7 @@ module Zype
           id: video['_id'],
           title: video['title'],
           subscription: video['subscription_required'],
-          image: video.dig('thumbnails', 0, 'url'),
+          image: video.dig('thumbnails', 0, 'url')
         }
       end
       videos_data
@@ -50,7 +52,6 @@ module Zype
     def video_attributes(video)
       {
         id: video['_id'],
-        title: video['title'],
         subscription: video['subscription_required'],
         embeded_player: embeded_player(video['_id'])
       }

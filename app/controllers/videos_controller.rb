@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
+# Videos Controller Class
 class VideosController < ApplicationController
-  before_action :video_path, only: [:index, :show]
+  before_action :video_path, only: %i[index show]
 
   def index
     query_result = zype_client.search_videos(params[:page])
@@ -11,7 +12,7 @@ class VideosController < ApplicationController
 
   def show
     @video = zype_client.fetch_video(params[:id])
-    return redirect_to login_path if @video[:subscription] && login_required
+    return redirect_to api_login_path if @video[:subscription] && login_required
 
     @entitled = zype_client.validate_consumer(params[:id]) if @video[:subscription]
   end
@@ -19,7 +20,7 @@ class VideosController < ApplicationController
   private
 
   def zype_client
-    @zype ||= Zype::Client.new
+    @zype_client ||= Zype::Client.new
   end
 
   def video_path
