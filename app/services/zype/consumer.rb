@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 module Zype
-  class Consumer < Oauth
+  class Consumer
     def validate_consumer(video_id)
       response = Typhoeus.get(entitled_url(video_id), params: { access_token: @access_token} )
-      JSON.parse(response.response_body.to_s)
+      message = JSON.parse(response.response_body.to_s)["message"]
+      return true if message != "entitled"
     end
 
     private

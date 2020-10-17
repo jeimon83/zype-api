@@ -15,15 +15,11 @@ module Zype
     end
 
     def build_videos_data(videos)
-      Zype::Data.new.build_videos_data(videos)
+      Zype::Videos.new.build_videos_data(videos)
     end
 
-    def build_video_data(video)
-      Zype::Data.new.build_video_data(video)
-    end
-
-    def authenticate(params)
-      Zype::Oauth.new.fetch_token(params)
+    def authenticate(login)
+      Zype::Oauth.new(login).fetch_token
     end
 	end
 end
