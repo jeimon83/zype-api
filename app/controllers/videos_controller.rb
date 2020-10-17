@@ -5,9 +5,9 @@ class VideosController < ApplicationController
   before_action :video_path, only: %i[index show]
 
   def index
-    query_result = zype_client.search_videos(params[:page])
-    @videos      = zype_client.build_videos_data(query_result['response'])
-    @pagination  = paginate(query_result['pagination'])
+    search_result = zype_client.search_videos(params[:page])
+    @videos       = search_result.first
+    @pagination   = search_result.last
   end
 
   def show

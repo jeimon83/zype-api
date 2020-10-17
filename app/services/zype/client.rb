@@ -3,7 +3,7 @@
 # Module Zype
 module Zype
   # Class Client
-  class Client    
+  class Client
     def search_videos(page)
       Zype::Videos.new.search_videos(page)
     end
@@ -14,10 +14,6 @@ module Zype
 
     def validate_consumer(video_id)
       Zype::Consumer.new.validate_consumer(video_id)
-    end
-
-    def build_videos_data(videos)
-      Zype::Videos.new.build_videos_data(videos)
     end
 
     def authenticate(login)
