@@ -12,7 +12,7 @@ class VideosController < ApplicationController
 
   def show
     @video = zype_client.fetch_video(params[:id])
-    return redirect_to api_login_path if @video[:subscription] && login_required
+    return redirect_to login_path if @video[:subscription] && login_required
 
     @entitled = zype_client.validate_consumer(params[:id]) if @video[:subscription]
   end

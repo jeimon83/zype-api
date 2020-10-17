@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     auth = zype_client.authenticate(login_params)
 
     if !auth
-      redirect_to api_login_path
+      redirect_to login_path
     else
       redirect_to session[:video_path]
     end
