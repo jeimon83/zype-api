@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'videos#index'
   resources :videos, only: %i[index show]
 
-  get '/login',         to: "users#api_login"
+  get '/login',         to: "users#login"
   get '/logout',        to: "users#logout"
   post '/authenticate', to: "users#authenticate"
   

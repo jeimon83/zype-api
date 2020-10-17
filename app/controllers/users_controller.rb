@@ -2,7 +2,7 @@
 
 # Users Controller Class
 class UsersController < ApplicationController
-  def api_login; end
+  def login; end
 
   def authenticate
     auth = zype_client.authenticate(login_params)
