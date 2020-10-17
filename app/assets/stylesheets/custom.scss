@@ -110,14 +110,20 @@ a {
   right: 5px;
   background: red;
   color: white;
-  margin: 0 35px;
 }
 
 .badge-mt {
   margin-top: 10px;
   margin-right: 120px;
   font-size: 1em;
+}
 
+.title-badge {
+  font-size: 1em;
+  position: absolute;
+  background: red;
+  color: white;
+  top: 40px;
 }
 
 /* login */

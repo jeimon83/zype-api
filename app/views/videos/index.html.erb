@@ -4,7 +4,7 @@
       <%= link_to image_tag(video[:image], size: "255x150", alt: "#{video[:title]}"), video_path(video[:id]) %>
       <div class="title-video"></div>
       <% if video[:subscription] %>
-        <div class="badge"> Subscription is required!</div>
+        <div class="badge"> Premium Content</div>
       <% end %>
     </div>
   <% end %>

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class VideosController < ApplicationController
-  before_action :video_path, only: :show
+  before_action :video_path, only: [:index, :show]
 
   def index
     query_result = zype_client.search_videos(params[:page])
