@@ -5,9 +5,9 @@
   	</div>
   	<div class="col-2">
   		<% if token_missing? %>
-  			<h2><%= link_to "Login", login_path %></h1>
+  			<h2><%= link_to "Login", login_path, class: "btn btn-custom" %></h1>
   		<% else %>
-  			<h2><%= link_to "Logout", logout_path %></h1>
+  			<h2><%= link_to "Logout", logout_path, class: "btn btn-custom" %></h1>
   		<% end %>
   	</div>
   </div>
