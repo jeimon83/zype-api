@@ -14,11 +14,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def logout
-    delete_access_token
-    redirect_to session[:video_path]
-  end
-
   private
 
   def zype_client
@@ -27,6 +22,5 @@ class UsersController < ApplicationController
 
   def login_params
     params.permit(:username, :password)
-    { username: params[:username], password: params[:password] }
   end
 end

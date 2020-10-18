@@ -1,14 +1,6 @@
 <header>
-	<div class="row">
-		<div class="col-1">
-  		<h1><%= link_to "ZYPE CHALLENGE", root_path %></h1>
-  	</div>
-  	<div class="col-2">
-  		<% if token_missing? %>
-  			<h2><%= link_to "Login", login_path, class: "btn btn-custom" %></h1>
-  		<% else %>
-  			<h2><%= link_to "Logout", logout_path, class: "btn btn-custom" %></h1>
-  		<% end %>
+	<div class="row header-title">
+		<h1><%= link_to "ZYPE CHALLENGE", root_path %></h1>
   	</div>
   </div>
 </header>

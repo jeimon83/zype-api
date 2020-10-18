@@ -5,16 +5,19 @@ class VideosController < ApplicationController
   before_action :video_path, only: %i[index show]
 
   def index
-    search_result = zype_client.search_videos(params[:page])
-    @videos       = search_result.first
-    @pagination   = search_result.last
+    @videos = Video.paginate(page: params[:page])
   end
 
   def show
-    @video = zype_client.fetch_video(params[:id])
-    return redirect_to login_path if @video[:subscription] && login_required
+    video = Video.find(params[:id])
+    return redirect_to login_path if video.subscription && login_required
 
-    @entitled = zype_client.validate_consumer(params[:id]) if @video[:subscription]
+    entitled = zype_client.validate_consumer(video.external_reference) if video.subscription
+    entitled_embed_player = video.entitled_embed_player if entitled
+
+    @subscription = video.subscription
+    @video_id = video.external_reference
+    @embed_player = entitled_embed_player.presence || video.embed_player
   end
 
   private

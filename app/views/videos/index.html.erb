@@ -1,19 +1,19 @@
 <div class="grid-video">
-  <% @videos[0..-2].each do |video| %>
+  <% @videos.each do |video| %>
     <div class="video-thumbnail">
-      <%= link_to image_tag(video[:image], size: "255x150", alt: "#{video[:title]}"), video_path(video[:id]) %>
+      <%= link_to image_tag(video.image, size: "255x150", alt: "#{video.title}"), video_path(video.id) %>
       <div class="title-video"></div>
-      <% if video[:subscription] %>
-        <div class="badge"> Premium Content</div>
+      <% if video.subscription && token_missing? %>
+        <div class="badge"> Subscription is required</div>
+      <% end %>
+      <% if video.subscription && !token_missing? %>
+        <div class="badge"> Premium content</div>
       <% end %>
     </div>
   <% end %>
 </div>
-<div class="page-container">
-	<% unless @pagination[:previous_page].nil? %>
-		<%= link_to "<< prev", videos_path(page: @pagination[:previous_page]), class: "page-button mr-10" %>
-	<% end %>
-	<% unless @pagination[:next_page].nil? %>
-		<%= link_to "next >>", videos_path(page: @pagination[:next_page]), class: "page-button ml-10" %>
-	<% end %>
+<div class="digg_pagination">
+  <% unless @videos.blank? %>
+    <%= will_paginate @videos %>
+  <% end %>
 </div>

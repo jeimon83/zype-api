@@ -4,16 +4,12 @@
 module Zype
   # Class Client
   class Client
-    def search_videos(page)
-      Zype::Videos.new.search_videos(page)
+    def fetch_and_save_videos
+      Zype::Videos.new.fetch_and_save_videos
     end
 
-    def fetch_video(id)
-      Zype::Videos.new.fetch_video(id)
-    end
-
-    def validate_consumer(video_id)
-      Zype::Consumer.new.validate_consumer(video_id)
+    def validate_consumer(id)
+      Zype::Consumer.new.validate_consumer(id)
     end
 
     def authenticate(login)

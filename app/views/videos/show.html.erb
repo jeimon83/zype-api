@@ -1,7 +1,4 @@
 <div class="content-video">	
-	<div id='<%= "zype_#{@video[:id]}" %>'></div>
-	<script src="<%= @video[:embeded_player] %>" type="text/javascript"></script>
-	<% if @entitled %>
-		<div class="badge badge-mt">Premium content! Subscribe now!</div>
-  <% end %>
+	<div id='<%= "zype_#{@video_id}" %>'></div>
+	<script src="<%= @embed_player %>" type="text/javascript"></script>
 </div>
