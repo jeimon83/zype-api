@@ -1,0 +1,180 @@
+@import "bootstrap";
+
+/* typography */
+body {
+  background: black;
+}
+
+h1 {
+  font-size: 1.5em;
+  color: white;
+  font-weight: 600;
+}
+
+/* header */
+
+.header-title {
+  margin-top: 10px;
+  margin-left: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    &:hover {
+    color: grey;
+    text-decoration: none;
+  }
+}
+
+/* video visualization */
+
+.grid-video {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  column-gap: 0px;
+  row-gap: 10px;
+  justify-items: center;
+  padding: 0 5px;
+  padding-bottom: 20px;
+}
+
+.content-video {
+  margin: 10px 0;
+  padding: 0 10px;
+}
+
+.video-thumbnail {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  display: block;
+  transition: opacity 0.4s;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.badge {
+  font-size: 0.8em;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: red;
+  color: white;
+}
+
+.title-video {
+  color: white;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.premium-badge {
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  background: red;
+  color: white;
+  font-weight: 600;
+  margin-right: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  padding: 0 10px;
+  height: fit-content;
+}
+
+/* login */
+
+.title-login {
+  text-align: center;
+  padding-top: 70px;
+  margin-bottom: -20px;
+}
+
+.login {
+  margin-top: 50px;
+}
+
+.log-btn {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+label {
+  color: white;
+  margin-top: 20px;
+}
+
+/* pagination */
+
+.pagination {
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.digg_pagination {
+  cursor: default;
+  /* self-clearing method: */ }
+  .digg_pagination a, .digg_pagination span, .digg_pagination em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px; }
+  .digg_pagination .disabled {
+    color: #999999;
+    border: 1px solid #dddddd; }
+  .digg_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background: #2e6ab1;
+    color: white;
+    border: 1px solid #2e6ab1; }
+  .digg_pagination a {
+    text-decoration: none;
+    color: white;
+    border: 1px solid #9aafe5; }
+    .digg_pagination a:hover, .digg_pagination a:focus {
+      color: white;
+      border-color: #000033; }
+  .digg_pagination .page_info {
+    background: #2e6ab1;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center; }
+    .digg_pagination .page_info b {
+      color: #000033;
+      background: #6aa6ed;
+      padding: 0.1em 0.25em; }
+  .digg_pagination:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .digg_pagination {
+    height: 1%; }
+  *:first-child + html .digg_pagination {
+    overflow: hidden; }
+
+/* flash messages */
+
+.alert-content {
+  display: flex;
+  justify-content: center;
+}
+
+.flash-msg {
+  background-color: red;
+  color: white;
+  font-size: 1.5em;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 0 10px;
+}

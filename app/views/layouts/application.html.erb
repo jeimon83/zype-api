@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zype Challenge</title>
+    <%= render 'layouts/default' %>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>		
+		<% flash.each do |type, msg| %>
+	  <div class="alert-content">	
+      <div class="flash-msg">
+	    	<%= msg %>
+	  	</div>
+    </div>
+		<% end %>
+		<%= yield %>
+  </body>
+</html>

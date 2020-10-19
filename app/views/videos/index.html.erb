@@ -1,0 +1,22 @@
+<div class="grid-video">
+  <% @videos.each do |video| %>
+    <div class="video-thumbnail">
+      <%= link_to image_tag(video.image, size: "255x150", alt: "#{video.title}"), video_path(video.id) %>
+      <div class="title-video"></div>
+      <% if video.subscription && token_missing? %>
+        <div class="badge"> SUBSCRIPTION REQUIRED</div>
+      <% end %>
+      <% if video.subscription && !token_missing? %>
+        <div class="badge"> PREMIUM CONTENT</div>
+      <% end %>
+      <h3 class="title-video" title="<%= video.title %>" >
+        <%= video.title.truncate(35) %>
+      </h3>
+    </div>
+  <% end %>
+</div>
+<div class="digg_pagination">
+  <% unless @videos.blank? %>
+    <%= will_paginate @videos %>
+  <% end %>
+</div>

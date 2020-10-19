@@ -1,0 +1,8 @@
+<header>
+	<div class="header-title">
+		<h1><%= link_to "ZYPE CHALLENGE", root_path %></h1>
+  	<% if @video&.subscription && !token_missing? %>
+	  	<span class="premium-badge">PREMIUM CONTENT</span>
+		<% end %>
+	</div>
+</header>

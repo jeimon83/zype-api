@@ -1,0 +1,17 @@
+<div class="row">
+  <h1 class="title-login">Subscription Required. Login & Enjoy Premium Content</h1>
+</div>
+<div class="row">
+  <div class="col-12 col-lg-4 offset-lg-4 login">
+  <%= form_with(url: authenticate_path, method: :post, local: true) do %>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <%= text_field_tag :email, "", required: true, class: "form-control" %>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <%= password_field_tag :password, "", required: true, class: "form-control" %>
+  </div>
+  <%= submit_tag "Login", class: "btn btn-primary btn-block log-btn" %>
+  <button type="submit" class="btn btn-success btn-block" disabled>Subscribe</button>
+  <% end %>
+</div>
