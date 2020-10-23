@@ -7,10 +7,15 @@ https://zypechallenge.herokuapp.com/
 Install
 -
 Clone the repository
+
 git clone https://github.com/jeimon83/zype-challenge.git
+
 cd zypechallenge
+
 Check your Ruby version
+
 ruby -v
+
 The ouput should start with something like ruby 2.7.1
 
 If not, install the right ruby version using rbenv (it could take a while):
